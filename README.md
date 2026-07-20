@@ -1,6 +1,6 @@
 # SambaTV — Mexico Expansion: Strategic Data Operations Blueprint
 
-Single-file, interactive HTML report for stakeholders (Head of Talent Acquisition & CTO) covering SambaTV's potential expansion of data operations into Mexico.
+Single-file, interactive HTML report for stakeholders (CTO — Jaya Aswani, COO — Alvir Navin) covering SambaTV's potential expansion of data operations into Mexico.
 
 ## Contents
 
