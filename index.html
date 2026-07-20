@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SambaTV — Mexico Expansion: Strategic Data Operations Blueprint</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+  --navy:#16233B;
+  --navy-2:#1F3B5C;
+  --blue:#2F6FB2;
+  --blue-light:#EAF2FB;
+  --red:#A2242F;
+  --red-light:#FBEAEC;
+  --green:#1F7A54;
+  --green-light:#E8F5EE;
+  --amber:#9A6B12;
+  --amber-light:#FBF1E0;
+  --bg:#F6F8FB;
+  --card:#FFFFFF;
+  --border:#E3E8EF;
+  --text:#182338;
+  --muted:#5B6B84;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;}
+a{color:var(--blue);}
+
+.nav{position:sticky;top:0;z-index:100;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;flex-wrap:wrap;gap:10px;box-shadow:0 2px 10px rgba(0,0,0,.15);}
+.nav .brand{font-weight:700;font-size:17px;letter-spacing:.2px;display:flex;align-items:center;gap:10px;}
+.nav .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--blue);display:inline-block;}
+.nav .tag{font-size:11px;background:var(--red);color:#fff;padding:3px 9px;border-radius:20px;letter-spacing:.5px;text-transform:uppercase;font-weight:600;}
+.nav-links{display:flex;gap:16px;flex-wrap:wrap;}
+.nav-links a{color:#C9D6E8;text-decoration:none;font-size:13px;font-weight:500;}
+.nav-links a:hover{color:#fff;}
+
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:50px 32px 0;}
+.hero-inner{max-width:1180px;margin:0 auto;}
+.hero .eyebrow{color:#8FB6E0;font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;}
+.hero h1{font-size:34px;margin:0 0 10px;font-weight:700;}
+.hero p.sub{font-size:16px;color:#C9D6E8;max-width:760px;margin:0 0 22px;}
+.hero .meta{display:flex;gap:26px;flex-wrap:wrap;font-size:13px;color:#AFC4DE;margin-bottom:28px;}
+.hero .meta b{color:#fff;}
+
+.glance{max-width:1180px;margin:0 auto;padding:0 32px 32px;position:relative;top:36px;}
+.glance-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+@media(max-width:1100px){.glance-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:650px){.glance-grid{grid-template-columns:1fr 1fr;}}
+.glance-card{background:#fff;border-radius:12px;padding:16px;box-shadow:0 8px 24px rgba(15,30,60,.14);border-top:4px solid var(--blue);}
+.glance-card.red{border-top-color:var(--red);}
+.glance-card.green{border-top-color:var(--green);}
+.glance-card.amber{border-top-color:var(--amber);}
+.glance-card .gicon{font-size:20px;margin-bottom:6px;}
+.glance-card .gnum{font-size:19px;font-weight:800;color:var(--navy);line-height:1.2;}
+.glance-card .glbl{font-size:11.5px;color:var(--muted);margin-top:4px;}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+section{padding:46px 0;border-bottom:1px solid var(--border);}
+section:first-of-type{padding-top:56px;}
+section:last-of-type{border-bottom:none;}
+h2.section-title{font-size:22px;color:var(--navy);margin:0 0 6px;font-weight:700;}
+h2.section-title .snum{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-size:14px;margin-right:10px;vertical-align:-4px;}
+p.section-lede{color:var(--muted);font-size:14.5px;margin:0 0 26px;max-width:840px;}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:900px){.grid2{grid-template-columns:1fr;}.grid3{grid-template-columns:1fr;}}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;}
+.takeaway{border-left:4px solid var(--blue);}
+.takeaway.alert{border-left-color:var(--red);}
+.takeaway.opp{border-left-color:var(--green);}
+.takeaway h4{margin:0 0 8px;font-size:13.5px;color:var(--navy);}
+.takeaway p{margin:0;font-size:13.5px;color:var(--muted);}
+
+table{width:100%;border-collapse:collapse;font-size:13px;background:var(--card);}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:600;font-size:11.5px;letter-spacing:.2px;}
+td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+tr:nth-child(even) td{background:#FAFBFD;}
+.table-wrap{border:1px solid var(--border);border-radius:10px;overflow-x:auto;}
+.note{font-size:12px;color:var(--muted);margin-top:8px;font-style:italic;line-height:1.5;}
+.pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11.5px;font-weight:600;}
+.pill.high{background:var(--red-light);color:var(--red);}
+.pill.med{background:var(--blue-light);color:var(--blue);}
+.pill.good{background:var(--green-light);color:var(--green);}
+.pill.ref{background:#EEF1F6;color:var(--muted);}
+
+.callout{background:var(--blue-light);border:1px solid #CFE2F5;border-radius:10px;padding:20px 22px;margin:18px 0 0;}
+.callout.red{background:var(--red-light);border-color:#F0CBD0;}
+.callout.green{background:var(--green-light);border-color:#C6E5D4;}
+.callout h4{margin:0 0 8px;color:var(--navy);font-size:14.5px;}
+.callout p{margin:0;font-size:13.5px;}
+.callout ul{margin:0;padding-left:18px;}
+.callout li{margin-bottom:8px;font-size:13.5px;}
+.callout li:last-child{margin-bottom:0;}
+
+/* range bar charts (pure CSS) */
+.chart-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px;}
+.chart-box h3{margin:0 0 4px;font-size:15px;color:var(--navy);}
+.chart-box .sub{font-size:12.5px;color:var(--muted);margin:0 0 18px;}
+.brow{display:grid;grid-template-columns:170px 1fr 150px;gap:12px;align-items:center;margin-bottom:12px;}
+@media(max-width:700px){.brow{grid-template-columns:110px 1fr;} .brow .bval{grid-column:2;}}
+.blabel{font-size:13px;font-weight:600;color:var(--navy);}
+.blabel small{display:block;font-weight:400;color:var(--muted);font-size:11px;}
+.btrack{position:relative;height:22px;background:#EFF3F8;border-radius:11px;overflow:hidden;}
+.bfill{position:absolute;top:0;height:100%;border-radius:11px;background:linear-gradient(90deg,var(--blue),#5590CB);}
+.bfill.green{background:linear-gradient(90deg,var(--green),#3F9B72);}
+.bfill.red{background:linear-gradient(90deg,var(--red),#C24955);}
+.bfill.gray{background:#B9C4D4;}
+.bval{font-size:12px;color:var(--muted);text-align:right;white-space:nowrap;}
+.axis{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);margin-top:6px;padding-left:182px;}
+@media(max-width:700px){.axis{padding-left:122px;}}
+
+/* uplift stack */
+.stack{display:flex;height:34px;border-radius:8px;overflow:hidden;font-size:11.5px;color:#fff;font-weight:600;margin:14px 0 8px;}
+.stack .seg{display:flex;align-items:center;justify-content:center;white-space:nowrap;}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px;}
+.legend .sw{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px;}
+
+/* hub cards */
+.hub{position:relative;}
+.hub .hname{font-size:16px;font-weight:700;color:var(--navy);margin:0 0 2px;}
+.hub .hrole{font-size:11.5px;text-transform:uppercase;letter-spacing:.8px;font-weight:700;margin-bottom:12px;}
+.hub .hrole.primary{color:var(--green);}
+.hub .hrole.secondary{color:var(--blue);}
+.hub ul{margin:0;padding-left:16px;font-size:13px;color:var(--muted);}
+.hub li{margin-bottom:7px;}
+.hub .hstat{font-size:26px;font-weight:800;color:var(--navy);}
+.hub .hstat small{font-size:12px;color:var(--muted);font-weight:400;display:block;}
+
+/* timeline */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:8px;}
+@media(max-width:900px){.timeline{grid-template-columns:1fr;}}
+.tstep{position:relative;padding:18px 18px 18px 22px;border-left:3px solid var(--blue);background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
+.tstep:first-child{border-radius:10px 0 0 10px;}
+.tstep:last-child{border-radius:0 10px 10px 0;}
+@media(max-width:900px){.tstep:first-child,.tstep:last-child{border-radius:10px;}.tstep{margin-bottom:10px;border-radius:10px;}}
+.tstep .twhen{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--blue);margin-bottom:6px;}
+.tstep h4{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.tstep p{margin:0;font-size:12.5px;color:var(--muted);}
+
+/* source-document unfold panels */
+details.doc{margin-top:20px;border:1px dashed #B9C9DD;border-radius:12px;background:#FBFDFF;}
+details.doc summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:12px;padding:16px 20px;}
+details.doc summary::-webkit-details-marker{display:none;}
+details.doc summary .dicon{width:38px;height:38px;border-radius:9px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+details.doc summary .dtitle{font-size:14px;font-weight:700;color:var(--navy);}
+details.doc summary .dsub{font-size:12px;color:var(--muted);margin-top:2px;}
+details.doc summary .chev{margin-left:auto;color:var(--blue);font-weight:700;font-size:13px;white-space:nowrap;}
+details.doc summary .chev:before{content:"▸ Unfold";}
+details.doc[open] summary .chev:before{content:"▾ Collapse";}
+details.doc .doc-body{padding:4px 20px 20px;}
+details.doc[open]{background:#fff;border-style:solid;}
+
+.rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:900px){.rec-grid{grid-template-columns:1fr;}}
+.rec{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;border-top:4px solid var(--green);}
+.rec .letter{display:inline-flex;width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;font-weight:700;font-size:13px;align-items:center;justify-content:center;margin-bottom:10px;}
+.rec h4{margin:0 0 8px;font-size:14px;color:var(--navy);}
+.rec p{margin:0;font-size:13px;color:var(--muted);}
+
+footer{background:var(--navy);color:#8FA6C4;text-align:center;font-size:12px;padding:22px 32px;margin-top:46px;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="brand"><span class="dot"></span>SambaTV — Mexico Expansion<span class="tag">Confidential</span></div>
+  <div class="nav-links">
+    <a href="#cost">1 · Cost vs. Scarcity</a>
+    <a href="#hubs">2 · Hubs</a>
+    <a href="#comp">3 · Compensation</a>
+    <a href="#taxes">4 · Real Cost</a>
+    <a href="#retention">5 · Retention</a>
+    <a href="#execution">6 · Execution</a>
+    <a href="#decision">Decision</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Strategic Decision Memo · 2025–2026</div>
+    <h1>Mexico Hub: A Strategic Data Operations Blueprint</h1>
+    <p class="sub">The business case and execution strategy for expanding SambaTV's data operations into Mexico — where to hire, what it really costs, and how to enter the market in under a month without stepping on legal landmines.</p>
+    <div class="meta">
+      <span>Prepared for <b>Head of Talent Acquisition &amp; CTO, SambaTV</b></span>
+      <span><b>July 2026</b></span>
+      <span>Sources: <b>4 research documents</b> (unfold inline)</span>
+    </div>
+  </div>
+</header>
+
+<div class="glance">
+  <div class="glance-grid">
+    <div class="glance-card green"><div class="gicon">💰</div><div class="gnum">60–65%</div><div class="glbl">Total cost saving vs. hiring in the U.S. (mid-level roles)</div></div>
+    <div class="glance-card red"><div class="gicon">📈</div><div class="gnum">46% / yr</div><div class="glbl">Growth in demand for AI &amp; Data roles — against low STEM-grad supply</div></div>
+    <div class="glance-card"><div class="gicon">📍</div><div class="gnum">~35,200</div><div class="glbl">Data specialists in Mexico City — 38% of the national tech workforce</div></div>
+    <div class="glance-card amber"><div class="gicon">⚖️</div><div class="gnum">+30–35%</div><div class="glbl">Mandatory uplift on gross salary (IMSS, INFONAVIT, Aguinaldo)</div></div>
+    <div class="glance-card green"><div class="gicon">🚀</div><div class="gnum">2–4 wks</div><div class="glbl">Time to first hire via EOR — vs. 3–6 months for a legal entity</div></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+<!-- ========== 1. COST VS SCARCITY ========== -->
+<section id="cost">
+  <h2 class="section-title"><span class="snum">1</span>The Bottom Line: Cost vs. Scarcity</h2>
+  <p class="section-lede">Mexico offers a 60–65% total cost saving compared to hiring in the U.S. — but the "cheap labor market" framing is a trap. There is a massive talent deficit in data analytics, and everyone else has done the same math.</p>
+
+  <div class="grid2">
+    <div class="card takeaway opp">
+      <h4>✅ What's true</h4>
+      <p>The sticker price for talent is genuinely lower: 60–65% total savings for mid-level roles. Senior compensation compresses the gap — which is why we compete on <b>ownership, not salary</b>.</p>
+    </div>
+    <div class="card takeaway alert">
+      <h4>⚠️ What's also true</h4>
+      <p>Demand for AI and Data roles is growing at <b>46% annually</b> while the supply of STEM grads remains low. Competition for the same people is fierce.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h4>→ Actionable insight</h4>
+    <p>Shift from viewing Mexico as a <b>cheap</b> labor market to a <b>high-competition</b> one, where speed and brand reputation matter more than the paycheck.</p>
+  </div>
+</section>
+
+<!-- ========== 2. HUBS ========== -->
+<section id="hubs">
+  <h2 class="section-title"><span class="snum">2</span>Where to Hire: The Hubs</h2>
+  <p class="section-lede">Talent is concentrated in two cities. Mexico City (CDMX) holds 38% of the nation's tech workforce; Monterrey is smaller but stronger on infrastructure and data governance.</p>
+
+  <div class="grid3">
+    <div class="card hub" style="border-top:4px solid var(--green);">
+      <div class="hname">Mexico City (CDMX)</div>
+      <div class="hrole primary">Primary — Senior Hiring</div>
+      <div class="hstat">38%<small>of the national tech workforce · ~35,200 data specialists</small></div>
+      <ul>
+        <li>The <b>only</b> hub with the Data Analyst density (6,000+ seniors) needed to seed a new department quickly, without a hiring freeze.</li>
+        <li>Launch the branch here to guarantee a deep enough senior pipeline.</li>
+      </ul>
+    </div>
+    <div class="card hub" style="border-top:4px solid var(--blue);">
+      <div class="hname">Monterrey</div>
+      <div class="hrole secondary">Secondary — Grads &amp; Governance</div>
+      <div class="hstat">#2<small>hub — smaller, but better for infrastructure &amp; data governance</small></div>
+      <ul>
+        <li>Best environment for infrastructure and data-governance functions.</li>
+        <li>Prime fresh-grad channel: <b>Tecnológico de Monterrey</b>.</li>
+      </ul>
+    </div>
+    <div class="card hub" style="border-top:4px solid var(--blue);">
+      <div class="hname">Guadalajara</div>
+      <div class="hrole secondary">Supporting — Grad Pipeline</div>
+      <div class="hstat">+<small>additional fresh-graduate sourcing market</small></div>
+      <ul>
+        <li>Complements Monterrey for early-career hiring at lower competition intensity.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout green">
+    <h4>→ Actionable insight</h4>
+    <p>For <b>senior-level hiring, launch in Mexico City</b>. For <b>fresh-grad hiring, go to Monterrey and Guadalajara</b> — particularly Tecnológico de Monterrey.</p>
+  </div>
+</section>
+
+<!-- ========== 3. COMPENSATION ========== -->
+<section id="comp">
+  <h2 class="section-title"><span class="snum">3</span>Compensation: What It Costs to Win</h2>
+  <p class="section-lede">A mid-level Data Analyst costs $1,555–$2,665 USD/month gross. Specialized AI/ML roles command a premium of up to $5,278 USD/month. ICT professionals hold the highest average wage baseline in the country (MXN 25,761).</p>
+
+  <div class="chart-box">
+    <h3>Data Analyst — monthly gross by experience tier (USD, 2026)</h3>
+    <p class="sub">Bars show the min–max band per tier.</p>
+    <div class="brow"><div class="blabel">Entry <small>0–2 years</small></div><div class="btrack"><div class="bfill gray" style="left:18.2%;width:10.1%;"></div></div><div class="bval">$1,000 – $1,555</div></div>
+    <div class="brow"><div class="blabel">Mid <small>3–5 years</small></div><div class="btrack"><div class="bfill" style="left:28.3%;width:20.2%;"></div></div><div class="bval">$1,555 – $2,665</div></div>
+    <div class="brow"><div class="blabel">Senior <small>6+ years</small></div><div class="btrack"><div class="bfill green" style="left:48.5%;width:27.2%;"></div></div><div class="bval">$2,665 – $4,165</div></div>
+    <div class="axis"><span>$0</span><span>$1,375</span><span>$2,750</span><span>$4,125</span><span>$5,500</span></div>
+  </div>
+
+  <div style="height:16px;"></div>
+
+  <div class="chart-box">
+    <h3>Specialized data roles — monthly gross, mid-level (USD, 2026)</h3>
+    <p class="sub">Data engineering and AI roles command significant premiums due to acute scarcity.</p>
+    <div class="brow"><div class="blabel">AI Engineer</div><div class="btrack"><div class="bfill red" style="left:55.6%;width:40.4%;"></div></div><div class="bval">$3,056 – $5,278</div></div>
+    <div class="brow"><div class="blabel">ML Engineer</div><div class="btrack"><div class="bfill red" style="left:50.5%;width:40.4%;"></div></div><div class="bval">$2,778 – $5,000</div></div>
+    <div class="brow"><div class="blabel">Data Scientist</div><div class="btrack"><div class="bfill" style="left:40.4%;width:35.4%;"></div></div><div class="bval">$2,222 – $4,167</div></div>
+    <div class="brow"><div class="blabel">Analytics Engineer</div><div class="btrack"><div class="bfill" style="left:35.3%;width:33.4%;"></div></div><div class="bval">$1,944 – $3,778</div></div>
+    <div class="axis"><span>$0</span><span>$1,375</span><span>$2,750</span><span>$4,125</span><span>$5,500</span></div>
+  </div>
+
+  <div class="grid2" style="margin-top:16px;">
+    <div class="card takeaway">
+      <h4>How direct competitors pay</h4>
+      <p><b>Netflix</b> hires directly and pays top-of-market — up to <b>$220,000 USD/year gross</b> for seniors. <b>Snowflake</b> runs on EOR and uses contractors at <b>$58,000–$75,000 USD/year gross</b>. Total gross heavily depends on the contract type issued.</p>
+    </div>
+    <div class="card takeaway opp">
+      <h4>→ Actionable insight</h4>
+      <p>Choose between <b>local or global EOR now</b>; move to an entity when headcount stabilizes above <b>~15</b>.</p>
+    </div>
+  </div>
+
+  <details class="doc">
+    <summary>
+      <div class="dicon">📊</div>
+      <div><div class="dtitle">Source document — Salary Benchmarks: Experience-Tiered &amp; Specialized Role Analysis</div><div class="dsub">Full benchmark tables behind the charts above (MXN + USD)</div></div>
+      <span class="chev"></span>
+    </summary>
+    <div class="doc-body">
+      <p style="font-size:13px;color:var(--muted);">ICT professionals command the highest average wage baseline in the country at <b>MXN 25,761</b>. Compensation is highly tiered based on technical depth and organizational impact.</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th colspan="3">Data Analyst — monthly gross salary (2026)</th></tr>
+          <tr><th>Experience tier</th><th>Monthly gross (MXN)</th><th>Monthly gross (USD)</th></tr>
+          <tr><td>Entry (0–2 years)</td><td>MXN 18,000 – 28,000</td><td>USD $1,000 – $1,555</td></tr>
+          <tr><td>Mid (3–5 years)</td><td>MXN 28,000 – 48,000</td><td>USD $1,555 – $2,665</td></tr>
+          <tr><td>Senior (6+ years)</td><td>MXN 48,000 – 75,000</td><td>USD $2,665 – $4,165</td></tr>
+        </table>
+      </div>
+      <p class="note">The projected July 2027 base salary for a mid-career analyst is MXN 508,910 annually.</p>
+      <div class="table-wrap" style="margin-top:14px;">
+        <table>
+          <tr><th colspan="3">Specialized data roles — mid-level benchmarks</th></tr>
+          <tr><th>Role</th><th>Monthly range (MXN)</th><th>Monthly range (USD)</th></tr>
+          <tr><td>AI Engineer</td><td>MXN 55,000 – 95,000</td><td>USD $3,056 – $5,278</td></tr>
+          <tr><td>ML Engineer</td><td>MXN 50,000 – 90,000</td><td>USD $2,778 – $5,000</td></tr>
+          <tr><td>Data Scientist</td><td>MXN 40,000 – 75,000</td><td>USD $2,222 – $4,167</td></tr>
+          <tr><td>Analytics Engineer</td><td>MXN 35,000 – 68,000</td><td>USD $1,944 – $3,778</td></tr>
+        </table>
+      </div>
+      <p class="note">Data engineering and AI roles command significant premiums due to acute scarcity.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ========== 4. REAL COST ========== -->
+<section id="taxes">
+  <h2 class="section-title"><span class="snum">4</span>The "Real" Cost: Taxes and New Laws</h2>
+  <p class="section-lede">Gross salary is not the number to budget. Mandatory benefits add 30–35% on top — and 2026 labor-law changes raise the stakes further.</p>
+
+  <div class="chart-box">
+    <h3>What $100 of gross salary actually costs</h3>
+    <p class="sub">Mandatory benefits: social security (IMSS), housing (INFONAVIT) and the 13th-month bonus (Aguinaldo).</p>
+    <div class="stack">
+      <div class="seg" style="flex:100;background:var(--navy);">Gross salary — 100%</div>
+      <div class="seg" style="flex:33;background:var(--amber);">+30–35% mandatory</div>
+      <div class="seg" style="flex:13;background:var(--red);">→ 46%</div>
+    </div>
+    <div class="legend">
+      <span><span class="sw" style="background:var(--navy);"></span>Gross salary</span>
+      <span><span class="sw" style="background:var(--amber);"></span>IMSS · INFONAVIT · Aguinaldo (+30–35%)</span>
+      <span><span class="sw" style="background:var(--red);"></span>Safe total uplift to budget on Direct Hire (46%)</span>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:16px;">
+    <div class="card takeaway alert">
+      <h4>⏱ 40-hour workweek</h4>
+      <p>On <b>May 1, 2026</b>, Mexico began a gradual transition to a 40-hour workweek — factor it into capacity planning and offer terms.</p>
+    </div>
+    <div class="card takeaway alert">
+      <h4>💸 Termination is expensive</h4>
+      <p>Firing a senior without statutory cause can cost <b>3 months of salary plus 20 days per year of service</b>. Hire deliberately; paper everything.</p>
+    </div>
+  </div>
+
+  <div class="callout red">
+    <h4>→ Actionable insight</h4>
+    <p>If hiring on Direct Hire, <b>budget a 46% total uplift</b> to be safe — and ensure all offer letters are compliant to avoid high legal penalties.</p>
+  </div>
+</section>
+
+<!-- ========== 5. RETENTION ========== -->
+<section id="retention">
+  <h2 class="section-title"><span class="snum">5</span>Keeping Talent: Retention Drivers</h2>
+  <p class="section-lede">Mexican tech professionals are unusually open to offers — but for the seniors we target, money stops being the lever surprisingly early.</p>
+
+  <div class="chart-box">
+    <h3>Share of tech professionals open to new jobs</h3>
+    <p class="sub">Mexico vs. the U.S. — the churn risk is structural, not anecdotal.</p>
+    <div class="brow"><div class="blabel">Mexico</div><div class="btrack"><div class="bfill red" style="left:0;width:75%;"></div></div><div class="bval"><b>75%</b></div></div>
+    <div class="brow"><div class="blabel">United States</div><div class="btrack"><div class="bfill gray" style="left:0;width:50%;"></div></div><div class="bval">~50%</div></div>
+    <div class="axis" style="padding-left:182px;"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+  </div>
+
+  <div class="grid2" style="margin-top:16px;">
+    <div class="card takeaway">
+      <h4>The $35k threshold</h4>
+      <p>Once a specialist earns over <b>$35,000 USD/year</b> (Mexico City data point), money becomes a <b>secondary motivator</b>. For our target senior roles, retention is driven by career growth and leadership quality rather than cash.</p>
+    </div>
+    <div class="card takeaway opp">
+      <h4>→ Actionable insight</h4>
+      <p>(1) Compete on <b>growth and ownership</b> instead of outbidding. (2) Focus the recruitment pitch on the <b>impact of the work and the quality of the team</b> to stabilize turnover risk.</p>
+    </div>
+  </div>
+
+  <details class="doc">
+    <summary>
+      <div class="dicon">🎬</div>
+      <div><div class="dtitle">Source document — Employer Branding: The Hook (The Plata Case)</div><div class="dsub">How Mexico's fastest-growing fintech turned a demanding culture into a recruiting magnet</div></div>
+      <span class="chev"></span>
+    </summary>
+    <div class="doc-body">
+      <p style="font-size:13.5px;"><b>What Plata did.</b> Plata — Mexico's fastest-growing fintech ($5B valuation) — turned employer branding into content: a two-hour documentary by a well-known journalist, published on Plata's own channel, openly advertising a demanding culture: <i>"working at Plata is not easy, it's not for everyone."</i> It functions as recruitment material with heavy emphasis on working conditions — and it pulled millions of views.</p>
+      <div class="grid2" style="margin-top:14px;">
+        <div class="card takeaway">
+          <h4>Why it matters</h4>
+          <p>"Not for everyone" is an <b>exclusivity hook</b> — it filters in ambitious candidates instead of persuading average ones, and pre-sells the culture so hires arrive self-selected. For a brand unknown in Mexico, this buys credibility that job ads can't.</p>
+        </div>
+        <div class="card takeaway opp">
+          <h4>→ Replicate at SambaTV scale</h4>
+          <p>Put US execs and future teammates on camera talking candidly about the work, the standards, and what the first CDMX cohort will own. Don't advertise — frame it as <b>"take it or leave it."</b> Distribute where CDMX data talent actually is (LinkedIn, YouTube, tech communities), and link it from every job post.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ========== 6. EXECUTION ========== -->
+<section id="execution">
+  <h2 class="section-title"><span class="snum">6</span>Execution: The Roadmap</h2>
+  <p class="section-lede">Three ways in — only one of them gets us hiring in under a month without legal exposure.</p>
+
+  <div class="grid3">
+    <div class="card" style="border-top:4px solid var(--green);">
+      <h4 style="margin:0 0 6px;color:var(--navy);">EOR (Employer of Record) <span class="pill good">Recommended</span></h4>
+      <p style="font-size:13px;color:var(--muted);margin:0;">Live in <b>2–4 weeks</b> at <b>$499–$699 USD/month</b> per hire. A REPSE-registered EOR shields SambaTV from the legal and tax risks below.</p>
+    </div>
+    <div class="card" style="border-top:4px solid var(--blue);">
+      <h4 style="margin:0 0 6px;color:var(--navy);">Local legal entity <span class="pill med">Later</span></h4>
+      <p style="font-size:13px;color:var(--muted);margin:0;">Takes <b>3–6 months</b> to set up and costs <b>$8k–$9k USD</b> in overhead. The right move once headcount stabilizes above ~15.</p>
+    </div>
+    <div class="card" style="border-top:4px solid var(--red);">
+      <h4 style="margin:0 0 6px;color:var(--navy);">Independent contractors <span class="pill high">Avoid</span></h4>
+      <p style="font-size:13px;color:var(--muted);margin:0;">Under the 2021 reforms, contractors who report to a manager and use our tools are <b>de facto employees</b>. Misclassification fines reach <b>up to $250,000 USD</b>.</p>
+    </div>
+  </div>
+
+  <h3 style="font-size:15px;color:var(--navy);margin:28px 0 4px;">The path</h3>
+  <div class="timeline">
+    <div class="tstep"><div class="twhen">Now</div><h4>Select a REPSE-registered EOR</h4><p>Compare on price, setup speed, compliance depth and recruitment support — see the partner comparison below.</p></div>
+    <div class="tstep"><div class="twhen">Weeks 1–4</div><h4>Go live in market</h4><p>EOR contracts signed; first offers out in CDMX. Compliant offer letters from day one.</p></div>
+    <div class="tstep"><div class="twhen">Hires 1–15</div><h4>Scale on EOR</h4><p>Build the founding CDMX cohort on the EOR — no entity overhead, no contractor trap.</p></div>
+    <div class="tstep"><div class="twhen">Headcount &gt; ~15</div><h4>Open the entity</h4><p>Once headcount stabilizes above ~15, the 3–6-month entity setup pays for itself.</p></div>
+  </div>
+
+  <details class="doc">
+    <summary>
+      <div class="dicon">🤝</div>
+      <div><div class="dtitle">Source document — Comparison of EOR Partners</div><div class="dsub">Deel/Remote · Start-Ops · CodersLink · HR Mexico — price, speed, compliance, recruitment focus</div></div>
+      <span class="chev"></span>
+    </summary>
+    <div class="doc-body">
+      <div class="table-wrap">
+        <table>
+          <tr><th>Partner</th><th>Price (monthly)</th><th>Setup speed</th><th>Compliance (REPSE)</th><th>Recruitment focus</th></tr>
+          <tr><td><b>Deel / Remote</b></td><td>~$599 USD</td><td>1–2 days</td><td><span class="pill med">Global standard</span></td><td>Generalist / self-serve</td></tr>
+          <tr><td><b>Start-Ops</b></td><td>~$450 USD</td><td>2–5 days</td><td><span class="pill good">Deep local expert</span></td><td>High (SME-focused)</td></tr>
+          <tr><td><b>CodersLink</b></td><td>Fee-based</td><td>2–4 weeks</td><td><span class="pill med">Tech specialist</span></td><td>Elite data/eng sourcing</td></tr>
+          <tr><td><b>HR Mexico</b></td><td>MXN 6.5k – 9.5k</td><td>48 hours</td><td><span class="pill good">Gold standard</span></td><td>Senior / high-comp</td></tr>
+        </table>
+      </div>
+      <p class="note">Shortlist reading: Start-Ops and HR Mexico lead on local REPSE compliance depth; Deel/Remote wins on speed and global tooling; CodersLink doubles as a specialist sourcing channel for elite data/engineering profiles.</p>
+    </div>
+  </details>
+
+  <div class="callout green">
+    <h4>→ Actionable insight</h4>
+    <p><b>Use a REPSE-registered EOR for the first 15 hires.</b> It gets us into the market in under a month and shields us from the massive legal and tax risks of the "contractor trap".</p>
+  </div>
+</section>
+
+<!-- ========== DECISION ========== -->
+<section id="decision">
+  <h2 class="section-title"><span class="snum">✓</span>The Decision, In Three Moves</h2>
+  <p class="section-lede">Everything above collapses into three commitments.</p>
+  <div class="rec-grid">
+    <div class="rec">
+      <span class="letter">A</span>
+      <h4>Enter via EOR, in Mexico City</h4>
+      <p>REPSE-registered EOR for the first ~15 hires; senior hiring seeded from CDMX's 6,000+ senior analyst pool; grads from Monterrey &amp; Guadalajara. Entity only above ~15 headcount.</p>
+    </div>
+    <div class="rec">
+      <span class="letter">B</span>
+      <h4>Budget the real cost</h4>
+      <p>Plan on gross + 30–35% mandatory benefits (46% safe uplift on Direct Hire), respect the 40-hour-week transition, and never touch the contractor model.</p>
+    </div>
+    <div class="rec">
+      <span class="letter">C</span>
+      <h4>Compete on ownership, not paycheck</h4>
+      <p>Above ~$35k/year money is secondary. Sell growth, leadership quality and what the first CDMX cohort will own — Plata-style candor, not job ads.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  SambaTV — Mexico Expansion: Strategic Data Operations Blueprint · Prepared July 2026 · Confidential — internal use only.<br>
+  Sources: Strategic Decision Memo (Mexico Hub 2025–2026) · Salary Benchmarks · Comparison of EOR Partners · Employer Branding: The Hook.
+</footer>
+
+</body>
+</html>
