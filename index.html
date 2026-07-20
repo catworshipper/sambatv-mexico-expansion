@@ -159,15 +159,6 @@ details.doc[open]{background:#fff;border-style:solid;}
 .rec h4{margin:0 0 8px;font-size:14px;color:var(--navy);}
 .rec p{margin:0;font-size:13px;color:var(--muted);}
 
-/* verbatim memo block — text exactly as in the source decision memo */
-.memo{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-bottom:20px;}
-.memo ul{margin:0;padding-left:0;list-style:none;}
-.memo li{position:relative;padding-left:22px;margin-bottom:12px;font-size:14px;color:var(--text);line-height:1.6;}
-.memo li:last-child{margin-bottom:0;}
-.memo li:before{content:"●";position:absolute;left:0;top:1px;color:var(--navy);font-size:11px;}
-.memo li b.mlbl{color:var(--navy);}
-.memo .fn{font-size:12.5px;color:var(--muted);font-style:italic;margin:8px 0 12px;padding-left:22px;}
-
 footer{background:var(--navy);color:#8FA6C4;text-align:center;font-size:12px;padding:22px 32px;margin-top:46px;}
 </style>
 </head>
@@ -214,30 +205,29 @@ footer{background:var(--navy);color:#8FA6C4;text-align:center;font-size:12px;pad
 <!-- ========== 1. COST VS SCARCITY ========== -->
 <section id="cost">
   <h2 class="section-title"><span class="snum">1</span>The Bottom Line: Cost vs. Scarcity</h2>
+  <p class="section-lede">Mexico offers a 60–65% total cost saving compared to hiring in the U.S. — but the "cheap labor market" framing is a trap. There is a massive talent deficit in data analytics, and everyone else has done the same math.</p>
 
-  <div class="memo">
-    <ul>
-      <li><b class="mlbl">What’s happening:</b> Mexico offers a 60%–65% total cost saving compared to hiring in the U.S. However, there is a massive talent deficit in data analytics.</li>
-    </ul>
-    <p class="fn">*60–65% holds for mid-level roles; senior comp compresses the gap, which is why we compete on ownership, not salary.</p>
-    <ul>
-      <li><b class="mlbl">Why it matters:</b> While the "sticker price" for talent is lower, competition is fierce because demand for AI and Data roles is growing at 46% annually while the supply of STEM grads remains low.</li>
-      <li><b class="mlbl">Actionable Insight:</b> shift from viewing Mexico as a cheap labor market to a high-competition one, where speed and brand reputation matter more than the paycheck.</li>
-    </ul>
+  <div class="grid2">
+    <div class="card takeaway opp">
+      <h4>✅ What's true</h4>
+      <p>The sticker price for talent is genuinely lower: 60–65% total savings for mid-level roles. Senior compensation compresses the gap — which is why we compete on <b>ownership, not salary</b>.</p>
+    </div>
+    <div class="card takeaway alert">
+      <h4>⚠️ What's also true</h4>
+      <p>Demand for AI and Data roles is growing at <b>46% annually</b> while the supply of STEM grads remains low. Competition for the same people is fierce.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h4>→ Actionable insight</h4>
+    <p>Shift from viewing Mexico as a <b>cheap</b> labor market to a <b>high-competition</b> one, where speed and brand reputation matter more than the paycheck.</p>
   </div>
 </section>
 
 <!-- ========== 2. HUBS ========== -->
 <section id="hubs">
   <h2 class="section-title"><span class="snum">2</span>Where to Hire: The Hubs</h2>
-
-  <div class="memo">
-    <ul>
-      <li><b class="mlbl">What’s happening:</b> Talent is concentrated in two cities: Mexico City (CDMX) and Monterrey. CDMX holds 38% of the nation’s tech workforce (~35,200 data specialists).</li>
-      <li><b class="mlbl">Why it matters:</b> CDMX is the only hub with the "Data Analyst" density (6,000+ seniors) required to seed a new department quickly without a hiring freeze. Monterrey is smaller but better for infrastructure and data governance.</li>
-      <li><b class="mlbl">Actionable Insight:</b> for senior-level hiring, launch the branch in Mexico City to ensure a deep enough pipeline. For fresh grad hiring go to Monterrey and Guadalajara, particularly to Tecnologico de Monterrey.</li>
-    </ul>
-  </div>
+  <p class="section-lede">Talent is concentrated in two cities. Mexico City (CDMX) holds 38% of the nation's tech workforce; Monterrey is smaller but stronger on infrastructure and data governance.</p>
 
   <div class="grid3">
     <div class="card hub" style="border-top:4px solid var(--green);">
@@ -267,19 +257,17 @@ footer{background:var(--navy);color:#8FA6C4;text-align:center;font-size:12px;pad
       </ul>
     </div>
   </div>
+
+  <div class="callout green">
+    <h4>→ Actionable insight</h4>
+    <p>For <b>senior-level hiring, launch in Mexico City</b>. For <b>fresh-grad hiring, go to Monterrey and Guadalajara</b> — particularly Tecnológico de Monterrey.</p>
+  </div>
 </section>
 
 <!-- ========== 3. COMPENSATION ========== -->
 <section id="comp">
   <h2 class="section-title"><span class="snum">3</span>Compensation: What It Costs to Win</h2>
-
-  <div class="memo">
-    <ul>
-      <li><b class="mlbl">What’s happening:</b> A mid-level Data Analyst costs $1,555 – $2,665 USD monthly (gross). Specialized roles like AI or ML Engineers command a premium, reaching up to $5,278 USD monthly.</li>
-      <li><b class="mlbl">Why it matters:</b> Total gross heavily depends on the issued type of contract. Direct competitors work on different models: Netflix hires directly and pays a top of market of up to $220,000 USD/year gross for seniors, while Snowflake is on EOR, and uses contractors at $58,000 – $75,000 USD/year gross.</li>
-      <li><b class="mlbl">Actionable Insight:</b> Choose between local or global EOR now, entity when headcount stabilizes above ~15.</li>
-    </ul>
-  </div>
+  <p class="section-lede">A mid-level Data Analyst costs $1,555–$2,665 USD/month gross. Specialized AI/ML roles command a premium of up to $5,278 USD/month. ICT professionals hold the highest average wage baseline in the country (MXN 25,761).</p>
 
   <div class="chart-box">
     <h3>Data Analyst — monthly gross by experience tier (USD, 2026)</h3>
@@ -300,6 +288,17 @@ footer{background:var(--navy);color:#8FA6C4;text-align:center;font-size:12px;pad
     <div class="brow"><div class="blabel">Data Scientist</div><div class="btrack"><div class="bfill" style="left:40.4%;width:35.4%;"></div></div><div class="bval">$2,222 – $4,167</div></div>
     <div class="brow"><div class="blabel">Analytics Engineer</div><div class="btrack"><div class="bfill" style="left:35.3%;width:33.4%;"></div></div><div class="bval">$1,944 – $3,778</div></div>
     <div class="axis"><span>$0</span><span>$1,375</span><span>$2,750</span><span>$4,125</span><span>$5,500</span></div>
+  </div>
+
+  <div class="grid2" style="margin-top:16px;">
+    <div class="card takeaway">
+      <h4>How direct competitors pay</h4>
+      <p><b>Netflix</b> hires directly and pays top-of-market — up to <b>$220,000 USD/year gross</b> for seniors. <b>Snowflake</b> runs on EOR and uses contractors at <b>$58,000–$75,000 USD/year gross</b>. Total gross heavily depends on the contract type issued.</p>
+    </div>
+    <div class="card takeaway opp">
+      <h4>→ Actionable insight</h4>
+      <p>Choose between <b>local or global EOR now</b>; move to an entity when headcount stabilizes above <b>~15</b>.</p>
+    </div>
   </div>
 
   <details class="doc">
@@ -338,14 +337,7 @@ footer{background:var(--navy);color:#8FA6C4;text-align:center;font-size:12px;pad
 <!-- ========== 4. REAL COST ========== -->
 <section id="taxes">
   <h2 class="section-title"><span class="snum">4</span>The "Real" Cost: Taxes and New Laws</h2>
-
-  <div class="memo">
-    <ul>
-      <li><b class="mlbl">What’s happening:</b> You must add 30%–35% on top of the gross salary for mandatory benefits like social security (IMSS), housing (INFONAVIT), and the 13th-month bonus (Aguinaldo)</li>
-      <li><b class="mlbl">Why it matters:</b> On May 1, 2026, Mexico is gradually transitioning to a 40-hour workweek. Additionally, termination costs are high—firing a senior without statutory cause can cost 3 months of salary plus 20 days per year of service</li>
-      <li><b class="mlbl">Actionable Insight:</b> If hiring on Direct Hire, budget for a 46% total uplift to be safe and ensure all offer letters are compliant to avoid high legal penalties.</li>
-    </ul>
-  </div>
+  <p class="section-lede">Gross salary is not the number to budget. Mandatory benefits add 30–35% on top — and 2026 labor-law changes raise the stakes further.</p>
 
   <div class="chart-box">
     <h3>What $100 of gross salary actually costs</h3>
@@ -362,20 +354,27 @@ footer{background:var(--navy);color:#8FA6C4;text-align:center;font-size:12px;pad
     </div>
   </div>
 
+  <div class="grid2" style="margin-top:16px;">
+    <div class="card takeaway alert">
+      <h4>⏱ 40-hour workweek</h4>
+      <p>On <b>May 1, 2026</b>, Mexico began a gradual transition to a 40-hour workweek — factor it into capacity planning and offer terms.</p>
+    </div>
+    <div class="card takeaway alert">
+      <h4>💸 Termination is expensive</h4>
+      <p>Firing a senior without statutory cause can cost <b>3 months of salary plus 20 days per year of service</b>. Hire deliberately; paper everything.</p>
+    </div>
+  </div>
 
+  <div class="callout red">
+    <h4>→ Actionable insight</h4>
+    <p>If hiring on Direct Hire, <b>budget a 46% total uplift</b> to be safe — and ensure all offer letters are compliant to avoid high legal penalties.</p>
+  </div>
 </section>
 
 <!-- ========== 5. RETENTION ========== -->
 <section id="retention">
   <h2 class="section-title"><span class="snum">5</span>Keeping Talent: Retention Drivers</h2>
-
-  <div class="memo">
-    <ul>
-      <li><b class="mlbl">What’s happening:</b> 75% of Mexican tech pros are ready to leave open for new jobs (vs. ~50% in the U.S.). However, once a specialist earns over $35,000 USD/year (Mexico City data point), money becomes a secondary motivator.</li>
-      <li><b class="mlbl">Why it matters:</b> For our target senior roles, retention is driven by career growth and leadership quality rather than cash.</li>
-      <li><b class="mlbl">Actionable Insight:</b> (1) Compete on growth and ownership instead of outbidding. (2) Focus our recruitment pitch on the impact of their work and the quality of the team to stabilize turnover risk.</li>
-    </ul>
-  </div>
+  <p class="section-lede">Mexican tech professionals are unusually open to offers — but for the seniors we target, money stops being the lever surprisingly early.</p>
 
   <div class="chart-box">
     <h3>Share of tech professionals open to new jobs</h3>
@@ -383,6 +382,17 @@ footer{background:var(--navy);color:#8FA6C4;text-align:center;font-size:12px;pad
     <div class="brow"><div class="blabel">Mexico</div><div class="btrack"><div class="bfill red" style="left:0;width:75%;"></div></div><div class="bval"><b>75%</b></div></div>
     <div class="brow"><div class="blabel">United States</div><div class="btrack"><div class="bfill gray" style="left:0;width:50%;"></div></div><div class="bval">~50%</div></div>
     <div class="axis" style="padding-left:182px;"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+  </div>
+
+  <div class="grid2" style="margin-top:16px;">
+    <div class="card takeaway">
+      <h4>The $35k threshold</h4>
+      <p>Once a specialist earns over <b>$35,000 USD/year</b> (Mexico City data point), money becomes a <b>secondary motivator</b>. For our target senior roles, retention is driven by career growth and leadership quality rather than cash.</p>
+    </div>
+    <div class="card takeaway opp">
+      <h4>→ Actionable insight</h4>
+      <p>(1) Compete on <b>growth and ownership</b> instead of outbidding. (2) Focus the recruitment pitch on the <b>impact of the work and the quality of the team</b> to stabilize turnover risk.</p>
+    </div>
   </div>
 
   <details class="doc">
@@ -410,14 +420,7 @@ footer{background:var(--navy);color:#8FA6C4;text-align:center;font-size:12px;pad
 <!-- ========== 6. EXECUTION ========== -->
 <section id="execution">
   <h2 class="section-title"><span class="snum">6</span>Execution: The Roadmap</h2>
-
-  <div class="memo">
-    <ul>
-      <li><b class="mlbl">What’s happening:</b> Setting up a local legal entity takes 3–6 months and costs $8k–$9k USD in overhead. An Employer of Record (EOR) takes 2–4 weeks for $499–$699 USD per month</li>
-      <li><b class="mlbl">Why it matters:</b> Using "independent contractors" is risky. Under 2021 reforms, if they report to a manager and use our tools, they are de facto employees, and misclassification fines reach up to $250,000 USD</li>
-      <li><b class="mlbl">Actionable Insight:</b> Use a REPSE-registered EOR for the first 15 hires. It gets us in the market in under a month and shields from the massive legal and tax risks of the "contractor trap".</li>
-    </ul>
-  </div>
+  <p class="section-lede">Three ways in — only one of them gets us hiring in under a month without legal exposure.</p>
 
   <div class="grid3">
     <div class="card" style="border-top:4px solid var(--green);">
@@ -461,6 +464,11 @@ footer{background:var(--navy);color:#8FA6C4;text-align:center;font-size:12px;pad
       <p class="note">Shortlist reading: Start-Ops and HR Mexico lead on local REPSE compliance depth; Deel/Remote wins on speed and global tooling; CodersLink doubles as a specialist sourcing channel for elite data/engineering profiles.</p>
     </div>
   </details>
+
+  <div class="callout green">
+    <h4>→ Actionable insight</h4>
+    <p><b>Use a REPSE-registered EOR for the first 15 hires.</b> It gets us into the market in under a month and shields us from the massive legal and tax risks of the "contractor trap".</p>
+  </div>
 </section>
 
 <!-- ========== DECISION ========== -->
